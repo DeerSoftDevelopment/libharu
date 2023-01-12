@@ -73,8 +73,9 @@ set(
 # create hpdf library
 # =======================================================================
 add_library(hpdf ${LIBHPDF_SRCS})
-include_directories (${PROJECT_BINARY_DIR}/deps/libpng/)
-target_link_libraries (hpdf ${PROJECT_BINARY_DIR}/deps/libpng/build/libpng.a)
+include_directories (${PROJECT_SOURCE_DIR}/deps/libpng/)
+include_directories (${PROJECT_SOURCE_DIR}/deps/libpng/build)
+target_link_libraries (hpdf ${PROJECT_SOURCE_DIR}/deps/libpng/build/libpng.a)
 if (ZLIB_FOUND)
     include_directories (${ZLIB_INCLUDE_DIRS})
     target_link_libraries (hpdf ${ZLIB_LIBRARIES})
