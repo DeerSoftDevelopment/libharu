@@ -18,11 +18,11 @@ include(GNUInstallDirs)
 
 # Location where the haru cmake build system first looks for cmake modules
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/modules)
-
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 # =======================================================================
 # command line options
 # =======================================================================
-option(BUILD_SHARED_LIBS "Build shared libraries (.dll/.so) instead of static ones (.lib/.a)" ON)
+option(BUILD_SHARED_LIBS "Build shared libraries (.dll/.so) instead of static ones (.lib/.a)" OFF)
 option(LIBHPDF_EXAMPLES "Build libharu examples" OFF)
 option(LIBHPDF_DEBUG "Enable HPDF Debug")
 option(LIBHPDF_DEBUG_TRACE "Enable HPDF Debug trace")
@@ -51,7 +51,6 @@ include(summary)
 find_package(ZLIB)
 
 # check png availability
-find_package(PNG)
 
 # Find math library, sometimes needs to be explicitly linked against
 find_library(M_LIB m)
@@ -76,7 +75,7 @@ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS 1)
 set (LIBHPDF_STDC_HEADERS 1)
 
 # support all of the different variations of LIBPNG defines in HARU
-set (LIBHPDF_HAVE_LIBPNG ${PNG_FOUND})
+set (LIBHPDF_HAVE_LIBPNG TRUE)
 
 # support different zlib defines
 set (LIBHPDF_HAVE_ZLIB ${ZLIB_FOUND})
