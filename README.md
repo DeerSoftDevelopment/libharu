@@ -1,3 +1,19 @@
+# Fork of libharu
+
+This fork is meant to alleviate some problems when building for Production Assist.
+
+The following changes where made:
+
+- Add libpng as a submodule
+- Modify CMake.txt 
+  - to reference the libpng module properly
+  - to disable shared lib build
+  - to enable PIC
+- Modify hpdf_image_png.c so instead of treating libpng warnings as errors (and thus aborting pdf creating), they are printed to std and then ignored
+
+
+
+
 # Haru Free PDF Library [![Build Status](https://github.com/libharu/libharu/actions/workflows/cmake.yml/badge.svg)](https://github.com/libharu/libharu/actions/workflows/cmake.yml)
 
   **URL http://libharu.org/**
