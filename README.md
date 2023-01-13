@@ -9,7 +9,7 @@ The following changes where made:
   - to reference the libpng module properly
   - to disable shared lib build
   - to enable PIC
-- Modify hpdf_image_png.c so instead of treating libpng warnings as errors (and thus aborting pdf creating), they are printed to std and then ignored
+- Modify hpdf_image_png.c so instead of treating libpng warnings as errors (and thus aborting pdf creation), they are printed to std and then ignored
 
 
 
