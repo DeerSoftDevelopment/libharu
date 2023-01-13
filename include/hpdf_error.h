@@ -93,7 +93,7 @@ extern "C" {
 #define HPDF_LIBPNG_ERROR                         0x1043
 #define HPDF_NAME_INVALID_VALUE                   0x1044
 #define HPDF_NAME_OUT_OF_RANGE                    0x1045
-/*                                                0x1046 */
+#define HPDF_LIBPNG_WARNING                       0x1046
 /*                                                0x1047 */
 #define HPDF_PAGE_INVALID_PARAM_COUNT             0x1048
 #define HPDF_PAGES_MISSING_KIDS_ENTRY             0x1049

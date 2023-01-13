@@ -26,6 +26,9 @@
 static void
 PngErrorFunc  (png_structp       png_ptr,
                const char  *msg);
+static void
+PngWarnFunc  (png_structp       png_ptr,
+               const char  *msg);
 
 
 static void
@@ -45,12 +48,6 @@ LoadPngData  (HPDF_Dict     image,
               HPDF_Xref     xref,
               HPDF_Stream   png_data,
               HPDF_BOOL     delayed_loading);
-
-
-static void
-PngErrorFunc  (png_structp       png_ptr,
-               const char  *msg);
-
 
 static HPDF_STATUS
 ReadPngData_Interlaced  (HPDF_Dict    image,
@@ -101,6 +98,13 @@ PngErrorFunc  (png_structp       png_ptr,
      error = (HPDF_Error)png_get_error_ptr (png_ptr);
      detail_no = (HPDF_STATUS)HPDF_AToI (error_number);
      HPDF_SetError (error, HPDF_LIBPNG_ERROR, detail_no);
+}
+
+static void
+PngWarnFunc  (png_structp       png_ptr,
+               const char  *msg)
+{
+	printf("png warning: %s", msg);
 }
 
 
@@ -431,7 +435,7 @@ LoadPngData  (HPDF_Dict     image,
 
 	/* create read_struct. */
 	png_ptr = png_create_read_struct (PNG_LIBPNG_VER_STRING,
-			image->error, PngErrorFunc, PngErrorFunc);
+			image->error, PngErrorFunc, PngWarnFunc);
 
 	if (png_ptr == NULL) {
 		HPDF_SetError (image->error, HPDF_FAILD_TO_ALLOC_MEM, 0);
