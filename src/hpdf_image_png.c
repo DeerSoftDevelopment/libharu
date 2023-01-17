@@ -104,7 +104,7 @@ static void
 PngWarnFunc  (png_structp       png_ptr,
                const char  *msg)
 {
-	printf("png warning: %s", msg);
+	printf("png warning: %s\n", msg);
 }
 
 
