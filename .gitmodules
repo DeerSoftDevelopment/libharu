@@ -1,0 +1,4 @@
+[submodule "deps/libpng"]
+	path = deps/libpng
+	url = https://github.com/DeerSoftDevelopment/libpng.git
+	branch = PA_1.7
