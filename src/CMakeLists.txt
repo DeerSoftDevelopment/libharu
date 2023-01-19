@@ -73,8 +73,7 @@ set(
 # create hpdf library
 # =======================================================================
 
-option(LIBPNG_BUILD_DIR "Libpng Build Directory" build)
-
+set(LIBPNG_BUILD_DIR "build" CACHE STRING "Libpng Build Directory")
 add_library(hpdf ${LIBHPDF_SRCS})
 include_directories (${PROJECT_SOURCE_DIR}/deps/libpng/)
 include_directories (${PROJECT_SOURCE_DIR}/deps/libpng/${LIBPNG_BUILD_DIR})
