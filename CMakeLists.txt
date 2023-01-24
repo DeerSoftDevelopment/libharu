@@ -53,7 +53,6 @@ find_package(ZLIB)
 # check png availability
 
 # Find math library, sometimes needs to be explicitly linked against
-find_library(M_LIB m)
 
 # =======================================================================
 # configure header files, add compiler flags
@@ -78,7 +77,7 @@ set (LIBHPDF_STDC_HEADERS 1)
 set (LIBHPDF_HAVE_LIBPNG TRUE)
 
 # support different zlib defines
-set (LIBHPDF_HAVE_ZLIB ${ZLIB_FOUND})
+set (LIBHPDF_HAVE_ZLIB TRUE)
 
 # create hpdf_config.h
 configure_file(

@@ -81,10 +81,12 @@ target_link_libraries (hpdf ${PROJECT_SOURCE_DIR}/deps/libpng/${LIBPNG_BUILD_DIR
 if (ZLIB_FOUND)
     include_directories (${ZLIB_INCLUDE_DIRS})
     target_link_libraries (hpdf ${ZLIB_LIBRARIES})
+elseif(EMSCRIPTEN)
+    include_directories (${PROJECT_SOURCE_DIR}/deps/zlibheaders/)
 endif()
 
 # Math library
-if(UNIX AND NOT APPLE)
+if(UNIX AND NOT APPLE AND NOT EMSCRIPTEN)
     target_link_libraries (hpdf ${M_LIB})
 endif()
 
